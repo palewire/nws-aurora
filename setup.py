@@ -10,16 +10,20 @@ def read(file_name):
 
 
 setup(
-    name='<your-pypi-package-name>',
+    name='nws-aurora',
     version='0.0.1',
-    description="<your-repo-description>",
+    description="Download forecast data for Aurora Borealis and Aurora Australis from the National Weather Service",
     long_description=read('README.md'),
     long_description_content_type='text/markdown',
-    author='Los Angeles Times Data and Graphics Department',
-    author_email='datagraphics@caltimes.com',
-    url='http://www.github.com/datadesk/<your-repo-slug>',
+    author='Ben Welsh',
+    author_email='b@palewi.re',
+    url='http://www.github.com/palewire/nws-aurora',
     license="MIT",
-    packages=("<your-python-module-name>",),
+    packages=("nws_aurora",),
+    entry_points="""
+        [console_scripts]
+        nwsaurora=nws_aurora.cli:cmd
+    """,
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Programming Language :: Python',
@@ -29,8 +33,8 @@ setup(
         'License :: OSI Approved :: MIT License',
     ],
     project_urls={
-        'Maintainer': 'https://github.com/datadesk',
-        'Source': 'https://github.com/datadesk/<your-repo-slug>',
-        'Tracker': 'https://github.com/datadesk/<your-repo-slug>/issues'
+        'Maintainer': 'https://github.com/palewire',
+        'Source': 'https://github.com/palewire/nws-aurora',
+        'Tracker': 'https://github.com/palewire/nws-aurora/issues'
     },
 )

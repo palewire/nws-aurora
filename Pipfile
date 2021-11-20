@@ -9,6 +9,11 @@ flake8 = "*"
 coverage = "*"
 
 [packages]
+click = "*"
+bs4 = "*"
+requests = "*"
+python-dateutil = "*"
+pytz = "*"
 
 [requires]
 python_version = "3.9"

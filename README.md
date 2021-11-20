@@ -1,23 +1,55 @@
-# python-open-source-template
+Download forecast data for Aurora Borealis and Aurora Australis from the National Weather Service
 
-A template for open-source Python software repositories
+## Installation
+
+```bash
+pipenv install nws-aurora
+```
+
+## Command-line usage
+
+```bash
+```
+
+Download data from the National Weather Service.
+
+```bash
+nwsaurora 
+```
+
+## Python usage
+
+Import the library.
+
+```python
+>>> import nws_aurora
+>>> 
+```
 
 ## Contributing
 
-Install dependencies for development
+Install dependencies for development.
 
-```zsh
+```bash
 pipenv install --dev
 ```
 
-Run tests
+Run tests.
 
-```zsh
+```bash
 make test
 ```
 
-Ship new version to PyPI
+Shipping new version to PyPI.
 
-```zsh
+```bash
 make ship
+```
+
+## Developing the CLI
+
+The command-line interface is implemented using Click and setuptools. To install it locally for development inside your virtual environment, run the following installation command, as prescribed by the [Click documentation](https://click.palletsprojects.com/en/7.x/setuptools/#setuptools-integration).
+
+```bash
+pip install --editable .
 ```
