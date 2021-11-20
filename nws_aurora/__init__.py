@@ -46,3 +46,11 @@ def get_latest_image(pole):
     Returns a URL string.
     """
     return f"https://services.swpc.noaa.gov/images/animations/ovation/{pole}/latest.jpg"
+
+
+def get_grid():
+    """
+    Get auroral data in a gridded format for the entire Earth.
+    """
+    r = requests.get("https://services.swpc.noaa.gov/json/ovation_aurora_latest.json")
+    return r.json()

@@ -1,7 +1,8 @@
 import click
 from nws_aurora import (
     get_images,
-    get_latest_image
+    get_latest_image,
+    get_grid
 )
 
 
@@ -23,3 +24,7 @@ def images(pole, latest):
     else:
         click.echo(get_images(pole))
 
+
+@cmd.command(help="Get auroral data in a gridded format for the entire Earth.")
+def grid():
+    click.echo(get_grid())
