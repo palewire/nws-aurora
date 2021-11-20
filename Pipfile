@@ -12,8 +12,8 @@ coverage = "*"
 click = "*"
 bs4 = "*"
 requests = "*"
-python-dateutil = "*"
 pytz = "*"
+geojson = "*"
 
 [requires]
 python_version = "3.9"

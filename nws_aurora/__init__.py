@@ -3,6 +3,7 @@ import pytz
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
+from geojson import Feature, FeatureCollection, Point
 
 IMAGE_REGEX = re.compile("aurora_[N|S]_(.*).jpg")
 
@@ -51,6 +52,21 @@ def get_latest_image(pole):
 def get_grid():
     """
     Get auroral data in a gridded format for the entire Earth.
+
+    Returns GeoJSON.
     """
     r = requests.get("https://services.swpc.noaa.gov/json/ovation_aurora_latest.json")
-    return r.json()
+    j = r.json()
+    feature_list = []
+    for d in j['coordinates']:
+        f = Feature(
+            geometry=Point((d[0], d[1])),
+            properties=dict(aurora=d[2])
+        )
+        feature_list.append(f)
+    fc = FeatureCollection(feature_list)
+    fc['properties'] = dict(
+        observation_time=j['Observation Time'],
+        forecast_time=j['Forecast Time']
+    )
+    return fc
