@@ -2,7 +2,8 @@ import click
 from nws_aurora import (
     get_images,
     get_latest_image,
-    get_grid
+    get_grid,
+    get_forecast
 )
 
 
@@ -25,6 +26,11 @@ def images(pole, latest):
         click.echo(get_images(pole))
 
 
-@cmd.command(help="Get auroral data in a gridded format for the entire Earth.")
+@cmd.command(help="Get auroral data in a gridded format for the entire Earth")
 def grid():
     click.echo(get_grid())
+
+
+@cmd.command(help="Get Ovation Aurora Short Term Forecast data")
+def forecast():
+    click.echo(get_forecast())

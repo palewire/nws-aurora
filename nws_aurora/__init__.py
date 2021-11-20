@@ -14,6 +14,11 @@ def _parse_image_date(s):
     return d.isoformat()
 
 
+def _parse_forecast_date(s):
+    d = datetime.strptime(s, '%Y-%m-%d_%H:%M').replace(tzinfo=pytz.UTC)
+    return d.isoformat()
+
+
 def get_images(pole):
     """
     Get URLs to all of the OVATION model images for the last 24 hours for the provided pole.
@@ -33,7 +38,7 @@ def get_images(pole):
         href_list.append(
             dict(
                 url=f"{url}{a['href']}",
-                timestamp=_parse_image_date(a['href']),
+                timestamp=_parse_image_date( a['href']),
                 pole=pole
             )
         )
@@ -70,3 +75,25 @@ def get_grid():
         forecast_time=j['Forecast Time']
     )
     return fc
+
+
+def get_forecast():
+    """
+    Get Ovation Aurora Short Term Forecast data.
+
+    Returns a list of dictionaries
+    """
+    r = requests.get("https://services.swpc.noaa.gov/text/aurora-nowcast-hemi-power.txt")
+    t = r.text.splitlines()
+    str_list = t[16:]
+    row_list = []
+    for s in str_list:
+        val_list = [v.strip() for v in s.split("    ")]
+        d = dict(
+            observation_time=_parse_forecast_date(val_list[0]),
+            forecast_time=_parse_forecast_date(val_list[1]),
+            hpi_north=int(val_list[2]),
+            hpi_south=int(val_list[3]),
+        )
+        row_list.append(d)
+    return row_list
