@@ -1,4 +1,12 @@
-.PHONY: test ship
+.PHONY: test ship scrape
+
+scrape:
+	pipenv run nwsaurora images --pole=north > data/images-north.json
+	pipenv run nwsaurora images --pole=south > data/images-south.json
+	pipenv run nwsaurora images --pole=north --latest > data/latest-image-north.txt
+	pipenv run nwsaurora images --pole=south --latest > data/latest-image-north.txt
+	pipenv run nwsaurora grid > data/grid.json
+	pipenv run nwsaurora forecast > data/forecast.json
 
 test:
 	pipenv run flake8 ./

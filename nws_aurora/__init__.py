@@ -38,7 +38,7 @@ def get_images(pole):
         href_list.append(
             dict(
                 url=f"{url}{a['href']}",
-                timestamp=_parse_image_date( a['href']),
+                timestamp=_parse_image_date(a['href']),
                 pole=pole
             )
         )
@@ -48,7 +48,7 @@ def get_images(pole):
 def get_latest_image(pole):
     """
     Get URL to the latest OVATION model image for the provided poll.
-    
+
     Returns a URL string.
     """
     return f"https://services.swpc.noaa.gov/images/animations/ovation/{pole}/latest.jpg"

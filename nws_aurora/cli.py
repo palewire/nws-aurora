@@ -16,7 +16,7 @@ def cmd():
     pass
 
 
-@cmd.command(help="All of the OVATION model images for the last 24 hours")
+@cmd.command(help="Ovation model images from the last 24 hours")
 @click.option('--latest', is_flag=True)
 @click.option('--pole', required=True, type=click.Choice(['north', 'south']))
 def images(pole, latest):
