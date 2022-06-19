@@ -1,8 +1,9 @@
 import re
+from datetime import datetime
+
 import pytz
 import requests
 from bs4 import BeautifulSoup
-from datetime import datetime
 from geojson import Feature, FeatureCollection, Point
 
 IMAGE_REGEX = re.compile("aurora_[N|S]_(.*).jpg")
@@ -10,12 +11,12 @@ IMAGE_REGEX = re.compile("aurora_[N|S]_(.*).jpg")
 
 def _parse_image_date(s):
     s = re.findall(IMAGE_REGEX, s)[0]
-    d = datetime.strptime(s, '%Y-%m-%d_%H%M').replace(tzinfo=pytz.UTC)
+    d = datetime.strptime(s, "%Y-%m-%d_%H%M").replace(tzinfo=pytz.UTC)
     return d.isoformat()
 
 
 def _parse_forecast_date(s):
-    d = datetime.strptime(s, '%Y-%m-%d_%H:%M').replace(tzinfo=pytz.UTC)
+    d = datetime.strptime(s, "%Y-%m-%d_%H:%M").replace(tzinfo=pytz.UTC)
     return d.isoformat()
 
 
@@ -31,15 +32,15 @@ def get_images(pole):
     a_list = s.find_all("a")
     href_list = []
     for a in a_list:
-        if 'latest.jpg' in a['href']:
+        if "latest.jpg" in a["href"]:
             continue
-        if '.jpg' not in a['href']:
+        if ".jpg" not in a["href"]:
             continue
         href_list.append(
             dict(
                 url=f"{url}{a['href']}",
-                timestamp=_parse_image_date(a['href']),
-                pole=pole
+                timestamp=_parse_image_date(a["href"]),
+                pole=pole,
             )
         )
     return href_list
@@ -63,16 +64,12 @@ def get_grid():
     r = requests.get("https://services.swpc.noaa.gov/json/ovation_aurora_latest.json")
     j = r.json()
     feature_list = []
-    for d in j['coordinates']:
-        f = Feature(
-            geometry=Point((d[0], d[1])),
-            properties=dict(aurora=d[2])
-        )
+    for d in j["coordinates"]:
+        f = Feature(geometry=Point((d[0], d[1])), properties=dict(aurora=d[2]))
         feature_list.append(f)
     fc = FeatureCollection(feature_list)
-    fc['properties'] = dict(
-        observation_time=j['Observation Time'],
-        forecast_time=j['Forecast Time']
+    fc["properties"] = dict(
+        observation_time=j["Observation Time"], forecast_time=j["Forecast Time"]
     )
     return fc
 
@@ -83,7 +80,9 @@ def get_forecast():
 
     Returns a list of dictionaries
     """
-    r = requests.get("https://services.swpc.noaa.gov/text/aurora-nowcast-hemi-power.txt")
+    r = requests.get(
+        "https://services.swpc.noaa.gov/text/aurora-nowcast-hemi-power.txt"
+    )
     t = r.text.splitlines()
     str_list = t[16:]
     row_list = []

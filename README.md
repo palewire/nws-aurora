@@ -41,14 +41,14 @@ nwsaurora forecast
 Import the library.
 
 ```python
->>> import nws_aurora
->>> nws_aurora.get_images('north')
->>> nws_aurora.get_images('south')
->>> nws_aurora.get_latest_image('north')
->>> nws_aurora.get_latest_image('south')
->>> nws_aurora.grid()
->>> nws_aurora.forecast()
+import nws_aurora
 
+nws_aurora.get_images("north")
+nws_aurora.get_images("south")
+nws_aurora.get_latest_image("north")
+nws_aurora.get_latest_image("south")
+nws_aurora.grid()
+nws_aurora.forecast()
 ```
 
 ## Contributing
@@ -62,13 +62,7 @@ pipenv install --dev
 Run tests.
 
 ```bash
-make test
-```
-
-Shipping new version to PyPI.
-
-```bash
-make ship
+pipenv run test.py
 ```
 
 ## Developing the CLI
@@ -76,5 +70,5 @@ make ship
 The command-line interface is implemented using Click and setuptools. To install it locally for development inside your virtual environment, run the following installation command, as prescribed by the [Click documentation](https://click.palletsprojects.com/en/7.x/setuptools/#setuptools-integration).
 
 ```bash
-pip install --editable .
+pipenv run pip install --editable .
 ```

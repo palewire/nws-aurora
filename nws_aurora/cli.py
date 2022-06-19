@@ -1,10 +1,6 @@
 import click
-from nws_aurora import (
-    get_images,
-    get_latest_image,
-    get_grid,
-    get_forecast
-)
+
+from nws_aurora import get_forecast, get_grid, get_images, get_latest_image
 
 
 @click.group()
@@ -17,8 +13,8 @@ def cmd():
 
 
 @cmd.command(help="Ovation model images from the last 24 hours")
-@click.option('--latest', is_flag=True)
-@click.option('--pole', required=True, type=click.Choice(['north', 'south']))
+@click.option("--latest", is_flag=True)
+@click.option("--pole", required=True, type=click.Choice(["north", "south"]))
 def images(pole, latest):
     if latest:
         click.echo(get_latest_image(pole))
