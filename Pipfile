@@ -10,6 +10,7 @@ setuptools-scm = "*"
 pre-commit = "*"
 sphinx = "*"
 myst-parser = "*"
+sphinx-palewire-theme = "*"
 
 [packages]
 click = "*"
@@ -19,4 +20,4 @@ pytz = "*"
 geojson = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3.11"

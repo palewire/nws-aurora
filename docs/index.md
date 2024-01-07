@@ -1,6 +1,3 @@
-```{include} _templates/nav.html
-```
-
 # nws-aurora
 
 Download forecast data for Aurora Borealis and Aurora Australis from the [National Weather Service](https://www.swpc.noaa.gov/products/aurora-30-minute-forecast)
@@ -81,10 +78,9 @@ The command-line interface is implemented using Click and setuptools. To install
 pipenv run pip install --editable .
 ```
 
-## Links
+## Other resources
 
 * Source: [www.swpc.noaa.gov](https://www.swpc.noaa.gov/products/aurora-30-minute-forecast)
-* Docs: [palewi.re/docs/nws-aurora/](https://palewi.re/docs/nws-aurora/)
 * Issues: [github.com/datadesk/nws-aurora/issues](https://github.com/datadesk/nws-aurora/issues)
 * Packaging: [pypi.python.org/pypi/nws-aurora](https://pypi.python.org/pypi/nws-aurora)
 * Testing: [github.com/datadesk/nws-aurora/actions](https://github.com/datadesk/nws-aurora/actions)
