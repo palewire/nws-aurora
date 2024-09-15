@@ -38,7 +38,7 @@ jobs:
 
       - id: install-python-dependencies
         name: Install Python dependencies
-        run: uv venv && uv pip install mypy
+        run: uv venv && uv pip install mypy types-requests types-pytz
 
       - id: mypy
         name: Run mypy
