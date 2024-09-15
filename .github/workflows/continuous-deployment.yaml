@@ -5,27 +5,44 @@ on:
 
 jobs:
   lint-python:
-    name: Lint
+    name: Lint Python code
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - id: checkout
+        name: Checkout
         uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - id: check-ruff
+        name: Check with Ruff
+        uses: chartboost/ruff-action@v1
         with:
-          python-version: '3.11'
-          cache: 'pipenv'
+          args: 'check --exit-zero --verbose'
 
-      - name: Install pipenv
-        run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
+      - id: format-ruff
+        name: Format with Ruff
+        uses: chartboost/ruff-action@v1
+        with:
+          args: 'format --check --verbose'
 
-      - id: pipenv-install
+  mypy-python:
+    name: Check Python static types
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        name: Checkout
+        uses: actions/checkout@v4
+
+      - id: setup-python
+        name: Setup Python
+        uses: hynek/setup-cached-uv@v2
+
+      - id: install-python-dependencies
         name: Install Python dependencies
-        run: pipenv sync --dev
+        run: uv venv && uv pip install mypy
 
-      - id: run
-        name: Run
-        run: pipenv run flake8 nws_aurora
+      - id: mypy
+        name: Run mypy
+        run: uv run mypy ./ --ignore-missing-imports
 
   test-python:
     strategy:
