@@ -117,7 +117,7 @@ jobs:
         name: Fetch artifact
         uses: actions/download-artifact@v4
         with:
-          name: test-release-${{ github.run_number }}
+          name: release-candidate
           path: ./dist
 
       - id: publish
