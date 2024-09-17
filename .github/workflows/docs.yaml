@@ -28,15 +28,14 @@ jobs:
 
       - id: build-sphinx-documentation
         name: Build Sphinx documentation
-        run: uv run sphinx-build -M html ./ _build/
-        working-directory: ./docs
+        run: uv run sphinx-build -M html ./docs ./_build/
 
       - id: upload-release-candidate
         name: Upload release candidate
         uses: actions/upload-artifact@v4
         with:
           name: release-candidate
-          path: ./docs/_build/html/
+          path: ./_build/html/
 
   deploy:
     name: Deploy
