@@ -23,7 +23,7 @@ jobs:
 
       - id: install-python-dependencies
         name: Install Python dependencies
-        run: uv venv && uv pip install sphinx myst-parser
+        run: uv venv && uv pip install sphinx myst-parser sphinx-palewire-theme
         working-directory: ./docs
 
       - id: build-sphinx-documentation
