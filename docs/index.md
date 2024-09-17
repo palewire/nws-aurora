@@ -81,6 +81,6 @@ pipenv run pip install --editable .
 ## Other resources
 
 * Source: [www.swpc.noaa.gov](https://www.swpc.noaa.gov/products/aurora-30-minute-forecast)
-* Issues: [github.com/datadesk/nws-aurora/issues](https://github.com/datadesk/nws-aurora/issues)
+* Issues: [github.com/palewire/nws-aurora/issues](https://github.com/palewire/nws-aurora/issues)
 * Packaging: [pypi.python.org/pypi/nws-aurora](https://pypi.python.org/pypi/nws-aurora)
-* Testing: [github.com/datadesk/nws-aurora/actions](https://github.com/datadesk/nws-aurora/actions)
+* Testing: [github.com/palewire/nws-aurora/actions](https://github.com/palewire/nws-aurora/actions)
