@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c5094aff8a3829be79efec05b6bb1d02c04a8f3308e9559a5067984972af4d4b"
+            "sha256": "d6daa17482b2175d6e8bf046f0b9c7b1750f2103a8c75eaa1886c4ec99352824"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -156,11 +156,11 @@
         },
         "idna": {
             "hashes": [
-                "sha256:69297d5da0cc9281c77efffb4e730254dd45943f45bbfb461de5991713989b1e",
-                "sha256:e5c5dafde284f26e9e0f28f6ea2d6400abd5ca099864a67f576f3981c6476124"
+                "sha256:12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9",
+                "sha256:946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==3.9"
+            "version": "==3.10"
         },
         "pytz": {
             "hashes": [
@@ -358,11 +358,11 @@
         },
         "idna": {
             "hashes": [
-                "sha256:69297d5da0cc9281c77efffb4e730254dd45943f45bbfb461de5991713989b1e",
-                "sha256:e5c5dafde284f26e9e0f28f6ea2d6400abd5ca099864a67f576f3981c6476124"
+                "sha256:12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9",
+                "sha256:946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==3.9"
+            "version": "==3.10"
         },
         "imagesize": {
             "hashes": [
@@ -590,11 +590,11 @@
         },
         "setuptools": {
             "hashes": [
-                "sha256:25af69c809d9334cd8e653d385277abeb5a102dca255954005a7092d282575ea",
-                "sha256:791ae94f04f78c880b5e614e560dd32d4b4af5d151bd9e7483e3377846caf90a"
+                "sha256:35ab7fd3bcd95e6b7fd704e4a1539513edad446c097797f2985e0e4b960772f2",
+                "sha256:d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==75.0.0"
+            "version": "==75.1.0"
         },
         "setuptools-scm": {
             "hashes": [
@@ -623,11 +623,11 @@
         },
         "sphinx-palewire-theme": {
             "hashes": [
-                "sha256:8bf819a9a079de920e68e0bc1f1bf5d3c616614343674c186af6377cb7661c22"
+                "sha256:2726a80349b9acba77be561bfde0e35d351b0c4f10c873703690b1763e784e8e"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.9'",
-            "version": "==0.1.1"
+            "version": "==0.1.2"
         },
         "sphinxcontrib-applehelp": {
             "hashes": [

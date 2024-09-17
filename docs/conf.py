@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.abspath(".."))
 extensions = [
     "myst_parser",
 ]
-source_suffix = ".md"
+source_suffix = {".md": "markdown"}
 master_doc = "index"
 
 project = "nws-aurora"
