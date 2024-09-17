@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools >= 61.0", "setuptools_scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nws-aurora"
+dynamic = ["version"]
+authors = [
+  { name="Ben Welsh", email="b@palewi.re" },
+]
+description = "Download forecast data for Aurora Borealis and Aurora Australis from the National Weather Service"
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "pytz",
+    "bs4",
+    "requests",
+    "geojson",
+    "click",
+    'exceptiongroup; python_version<"3.11"',
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+]
+
+[project.scripts]
+nwsaurora = "nws_aurora.cli:cmd"
+
+[project.urls]
+Homepage = "https://github.com/palewire/nws-aurora/"
+Issues = "https://github.com/palewire/nws-aurora/issues"
+
+[tool.setuptools.packages.find]
+where = ["nws_aurora"]
+
+[tool.setuptools_scm]
