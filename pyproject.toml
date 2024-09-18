@@ -37,7 +37,7 @@ nwsaurora = "nws_aurora.cli:cmd"
 Homepage = "https://github.com/palewire/nws-aurora/"
 Issues = "https://github.com/palewire/nws-aurora/issues"
 
-[tool.setuptools.packages.find]
-where = ["nws_aurora"]
+[tool.setuptools]
+packages = ["nws_aurora"]
 
 [tool.setuptools_scm]
